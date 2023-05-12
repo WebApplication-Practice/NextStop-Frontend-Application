@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../TravelApp-Services/UserServices/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
   msg!: string ;
   status!: boolean;
   errorMsg!: string;
-  constructor(private formBuilder: FormBuilder, private _userService: UserService) { }
+  constructor(private formBuilder: FormBuilder, private _userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -39,18 +40,18 @@ export class RegisterComponent implements OnInit {
         this.status = responseAddData;
         if (this.status) {
           alert('User Sucessfully Registered');
-        //  this.router.navigate(['/login']);
+         this.router.navigate(['/login']);
         }
         else {
           alert('Some Error Occured');
-          // this.router.navigate(['/home']);
+           this.router.navigate(['/home']);
         }
       },
       responseAddError => {
         this.errorMsg = responseAddError;
         console.log(this.errorMsg);
         alert("Some error occured, please try after some time.");
-        // this.router.navigate(['/home']);
+         this.router.navigate(['/home']);
       },
       () => console.log("Add user method executed successfully.")
     );

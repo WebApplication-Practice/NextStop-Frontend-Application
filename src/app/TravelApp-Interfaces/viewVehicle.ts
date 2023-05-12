@@ -1,4 +1,5 @@
 export interface IViewVehicle {
+basePrice: any;
     vehicleId: number;
     vehicleName: string;
     vehicleType: string;
