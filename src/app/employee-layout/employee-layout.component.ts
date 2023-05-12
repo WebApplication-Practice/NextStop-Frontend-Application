@@ -14,10 +14,10 @@ export class EmployeeLayoutComponent implements OnInit {
   lastName!: string;
 
   constructor(private router: Router) { 
-    // this.userRole = sessionStorage.getItem('userRole');
-    // this.userName = sessionStorage.getItem('userName');
-    // this.firstName = sessionStorage.getItem('firstName');
-    // this.lastName = sessionStorage.getItem('lastName');
+    this.userRole = JSON.parse(sessionStorage.getItem('userRole') || '{}');
+    this.userName = JSON.parse(sessionStorage.getItem("userName") || '{}');
+    this.firstName = JSON.parse(sessionStorage.getItem('firstName') || '{}');
+    this.lastName = JSON.parse(sessionStorage.getItem('lastName') || '{}');   
   }
 
   ngOnInit(): void {
